@@ -9,7 +9,7 @@ class PcturnerController extends Controller
 {
     public function turnOn()
     {
-        $response = Http::post('http://192.168.137.222/turn-on-pc');
+        $response = Http::post('http://192.168.137.222/turn-pc-on');
 
         if ($response->successful()) {
             // Handle success
