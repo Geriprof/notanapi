@@ -14,3 +14,6 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 Route::post('/turn-on-pc', [PcturnerController::class, 'turnOn']);
 Route::post("login", [Authcontroller::class, "login"]);
+Route::post('http://192.168.137.222/receive-data', [
+    'data' => 'your-data-here'
+]);
