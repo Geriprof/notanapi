@@ -4,18 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use GuzzleHttp\Client;
 
 class PcturnerController extends Controller
 {
     public function turnOn()
     {
-        $response = Http::post('http://192.168.137.222/turn-pc-on');
+        $client = new Client();
+        $response = $client->post('http://192.168.137.222/turn-pc-on');
 
-        if ($response->successful()) {
-            // Handle success
-        } else {
-            // Handle failure
-        }
+        echo $response->getBody();
     }
     public function turnOff() {}
 }
