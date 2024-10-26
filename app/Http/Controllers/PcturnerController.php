@@ -11,7 +11,7 @@ class PcturnerController extends Controller
     public function turnOn()
     {
         $client = new Client();
-        $response = $client->post('http://192.168.137.222/turn-pc-on');
+        $response = $client->post('http://192.168.0.107/turn-pc-on');
 
         echo $response->getBody();
     }
