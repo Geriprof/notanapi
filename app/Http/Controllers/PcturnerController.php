@@ -3,25 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class PcturnerController extends Controller
 {
-    public function turnOn(Request $request)
-    { // Validate the incoming request
-        $request->validate([
-            'message' => 'required|string',
+    public function turnOn()
+    {
+        $response = Http::post('http://192.168.137.222/receive-data', [
+            'data' => 'your-data-here'
         ]);
 
-        // Process the message (you can save it to a database or perform any other action)
-        $message = $request->input('message');
-
-        // Example: Log the message
-
-        // Respond back to ESP32
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Message received successfully!',
-        ]);
+        if ($response->successful()) {
+            // Handle success
+        } else {
+            // Handle failure
+        }
     }
     public function turnOff() {}
 }
